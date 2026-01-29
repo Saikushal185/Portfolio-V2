@@ -14,6 +14,7 @@ const ResumePage = lazy(() => import('./features/resume').then(module => ({ defa
 const PrivacyPage = lazy(() => import('./features/legal').then(module => ({ default: module.PrivacyPage })));
 const TermsPage = lazy(() => import('./features/legal').then(module => ({ default: module.TermsPage })));
 const CodingProfilesPage = lazy(() => import('./features/coding-profiles').then(module => ({ default: module.CodingProfilesPage })));
+const AdminPage = lazy(() => import('./features/admin').then(module => ({ default: module.AdminPage })));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 
 import {
@@ -121,6 +122,7 @@ function App() {
                                     <Route path="/contact" element={<ContactPage />} />
                                     <Route path="/privacy" element={<PrivacyPage />} />
                                     <Route path="/terms" element={<TermsPage />} />
+                                    <Route path="/admin" element={<AdminPage />} />
                                     <Route path="*" element={<NotFoundPage />} />
                                 </Routes>
                             </Suspense>
