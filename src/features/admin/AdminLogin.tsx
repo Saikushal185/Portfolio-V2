@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase, isSupabaseConfigured } from '../../lib/supabase';
+import { isSupabaseConfigured } from '../../lib/supabase';
 import { Lock, Mail, Loader2, AlertCircle } from 'lucide-react';
 
 interface AdminLoginProps {

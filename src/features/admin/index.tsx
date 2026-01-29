@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../../lib/supabase';
 import { AdminLogin } from './AdminLogin';
 import { Dashboard } from './Dashboard';
 import { Loader2 } from 'lucide-react';
