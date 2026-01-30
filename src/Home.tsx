@@ -85,7 +85,7 @@ const Home = () => {
 
                 {/* Classic Version Link */}
                 <a
-                    href="https://kushal.orravyn.info/"
+                    href="https://classic.saikushal.live/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-blue-600 transition-colors group"
