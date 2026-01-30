@@ -179,7 +179,7 @@ const Sidebar = () => {
                 <div className="flex gap-4 flex-wrap">
                     <Link to="/privacy" className="text-xs font-medium text-gray-500 hover:text-gray-700 hover:underline">Privacy</Link>
                     <Link to="/terms" className="text-xs font-medium text-gray-500 hover:text-gray-700 hover:underline">Terms</Link>
-                    <a href="https://kushal.orravyn.info/" target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-gray-400 hover:text-blue-600 hover:underline">Classic Version</a>
+                    <a href="https://classic.saikushal.live/" target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-gray-400 hover:text-blue-600 hover:underline">Classic Version</a>
                 </div>
             </div>
         </nav>
