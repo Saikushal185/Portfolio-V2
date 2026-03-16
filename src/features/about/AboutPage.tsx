@@ -100,8 +100,8 @@ export const AboutPage = () => {
               <div className="w-1.5 h-10 rounded-full bg-orange-500" />
               <div>
                 <p className="text-xl font-black tracking-tight text-gray-900">CodeChef</p>
-                <p className="text-sm font-bold text-gray-500">1 Star</p>
-                <p className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">1300+ Rating</p>
+                <p className="text-sm font-bold text-gray-500">2 Stars</p>
+                <p className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">1400+ Rating</p>
               </div>
             </div>
             <div className="flex items-start gap-4">

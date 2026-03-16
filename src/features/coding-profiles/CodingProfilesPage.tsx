@@ -97,7 +97,7 @@ export const CodingProfilesPage = () => {
         {
             label: "CodeChef",
             href: "https://www.codechef.com/users/Saikushal185",
-            stats: "1★ • 1300+",
+            stats: "2 Stars • 1400+",
             desc: "Active participant in long and short format competitive programming contests.",
             color: "yellow",
             icon: <img src="/codechef.webp" alt="CodeChef" className="w-full h-full object-cover" />,
@@ -136,11 +136,9 @@ export const CodingProfilesPage = () => {
                 <meta name="description" content="Competitive programming profiles of Sai Kushal - LeetCode Knight (1800+), CodeChef, Codeforces, and more." />
             </Helmet>
             <div className="home-container relative py-12 px-4 max-w-6xl mx-auto min-h-full overflow-hidden">
-                {/* Ambient Background Elements */}
                 <div className="absolute top-0 -left-20 w-96 h-96 bg-blue-400/10 blur-[120px] rounded-full -z-10 animate-pulse" />
                 <div className="absolute bottom-0 -right-20 w-96 h-96 bg-indigo-400/10 blur-[120px] rounded-full -z-10 animate-pulse delay-700" />
 
-                {/* Header section with distinct typography */}
                 <header className="text-center space-y-6 mb-20 animate-fade-in">
                     <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/40 backdrop-blur-md border border-white/40 rounded-full shadow-sm">
                         <Code className="w-4 h-4 text-blue-500" />
@@ -164,7 +162,6 @@ export const CodingProfilesPage = () => {
                     </div>
                 </header>
 
-                {/* Bento Style Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-4 gap-6 auto-rows-[140px]">
                     {codingProfiles.map((profile, i) => {
                         const isFeatured = profile.featured;
@@ -181,7 +178,6 @@ export const CodingProfilesPage = () => {
                                 rel="noopener noreferrer"
                                 className={`group relative flex flex-col justify-between p-8 rounded-[2.5rem] bg-white border shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden ${colSpan} ${rowSpan} ${styles.border} ${styles.hoverBorder}`}
                             >
-                                {/* Gradient Overlay on Hover */}
                                 <div className={`absolute inset-0 bg-gradient-to-br ${styles.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                                 <div className="relative z-10 flex items-start justify-between">
@@ -220,7 +216,6 @@ export const CodingProfilesPage = () => {
                                     )}
                                 </div>
 
-                                {/* Decorative background number/letter */}
                                 <div className="absolute -bottom-6 -right-4 text-[120px] font-black text-gray-900/5 select-none transition-all group-hover:text-gray-900/[0.08] group-hover:scale-110">
                                     {profile.label[0]}
                                 </div>
@@ -229,7 +224,6 @@ export const CodingProfilesPage = () => {
                     })}
                 </div>
 
-                {/* Bottom Accent */}
                 <div className="mt-20 text-center animate-fade-in">
                     <p className="text-xs font-black text-gray-400 uppercase tracking-widest flex items-center justify-center gap-4">
                         <span className="w-12 h-px bg-gray-200" />

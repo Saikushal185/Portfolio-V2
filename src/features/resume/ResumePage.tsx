@@ -276,7 +276,7 @@ export const ResumePage = () => {
                                         </li>
                                         <li className="text-xs text-gray-600 leading-relaxed flex gap-2">
                                             <Award className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                                            <span>CodeChef 1-Star (1300+ Rating)</span>
+                                            <span>CodeChef 2 Stars (1400+ Rating)</span>
                                         </li>
                                     </ul>
                                 </section>

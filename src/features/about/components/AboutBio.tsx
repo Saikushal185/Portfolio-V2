@@ -2,7 +2,7 @@ export const AboutBio = () => {
     return (
         <div className="space-y-6 text-muted-foreground">
             <p className="text-lg leading-relaxed">
-                I am a GenAI & ML Engineer with a strong foundation in data structures, algorithms, and scalable system design, backed by solving 1,000+ problems, earning the LeetCode Guardian badge (2500+ rating) and a 3★ CodeChef rating (1600+). This discipline has shaped my ability to build efficient, reliable, and production-grade AI and cloud systems.
+                I am a GenAI & ML Engineer with a strong foundation in data structures, algorithms, and scalable system design, backed by solving 1,000+ problems, earning the LeetCode Guardian badge (2500+ rating) and a 2-star CodeChef rating (1400+). This discipline has shaped my ability to build efficient, reliable, and production-grade AI and cloud systems.
             </p>
 
             <p className="leading-relaxed">
@@ -10,7 +10,7 @@ export const AboutBio = () => {
             </p>
 
             <p className="leading-relaxed">
-                I specialize in building cloud-native GenAI systems on AWS, deploying secure, cost-efficient, and scalable AI/ML pipelines — from experimentation to production.
+                I specialize in building cloud-native GenAI systems on AWS, deploying secure, cost-efficient, and scalable AI/ML pipelines from experimentation to production.
             </p>
 
             <p className="leading-relaxed">
@@ -18,7 +18,7 @@ export const AboutBio = () => {
             </p>
 
             <p className="leading-relaxed">
-                For me, it's not just about using powerful tools — it's about engineering intelligent systems that solve real-world problems at scale.
+                For me, it's not just about using powerful tools - it's about engineering intelligent systems that solve real-world problems at scale.
             </p>
 
             <p className="leading-relaxed">Learn always. Build always.</p>
@@ -38,15 +38,15 @@ export const AboutBio = () => {
                 </div>
                 <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                    <span>LeetCode 2500+ Rating • Guardian Badge</span>
+                    <span>LeetCode 2500+ Rating - Guardian Badge</span>
                 </div>
                 <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                    <span>CodeChef 1600+ Rating • 3 Star</span>
+                    <span>CodeChef 1400+ Rating - 2 Stars</span>
                 </div>
                 <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                    <span>50+ Contests Participated •  1000+ Problems</span>
+                    <span>50+ Contests Participated - 1000+ Problems</span>
                 </div>
             </div>
         </div>

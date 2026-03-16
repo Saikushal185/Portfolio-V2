@@ -8,7 +8,6 @@ import {
     Trophy,
     MessageSquare,
     Download,
-
     ExternalLink,
     MapPin,
     Share2,
@@ -21,7 +20,7 @@ export const ContactSection = () => {
 
     const stats = [
         { label: "LeetCode Knight", value: "500+", rating: "1800+ Rating", href: "https://leetcode.com/u/saikushal18/", color: "blue" },
-        { label: "CodeChef Ranking", value: "1⭐", rating: "1300+ Rating", href: "https://www.codechef.com/users/Saikushal185", color: "indigo" },
+        { label: "CodeChef Ranking", value: "2 Stars", rating: "1400+ Rating", href: "https://www.codechef.com/users/Saikushal185", color: "indigo" },
         { label: "GitHub Presence", value: "11+", rating: "Open Source", href: "https://github.com/Saikushal185", color: "emerald" },
     ];
 
@@ -42,11 +41,9 @@ export const ContactSection = () => {
 
     return (
         <div className="home-container relative py-12 px-4 max-w-7xl mx-auto min-h-full">
-            {/* Ambient Background Glows */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full -z-10" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full -z-10" />
 
-            {/* Header section */}
             <header className="text-center space-y-8 mb-20 animate-fade-in px-4">
                 <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/40 backdrop-blur-md border border-white/40 rounded-full shadow-sm">
                     <Share2 className="w-4 h-4 text-blue-500" />
@@ -64,7 +61,6 @@ export const ContactSection = () => {
             </header>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 relative z-10">
-                {/* Primary Contact Card - Message Dialog CTA */}
                 <div
                     onClick={() => setAnonymousDialogOpen(true)}
                     className="lg:col-span-8 group relative flex flex-col p-8 md:p-14 rounded-[2.5rem] md:rounded-[3rem] bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-2xl shadow-blue-500/20 hover:scale-[1.01] transition-all cursor-pointer overflow-hidden"
@@ -95,7 +91,6 @@ export const ContactSection = () => {
                     </div>
                 </div>
 
-                {/* Direct Connect Grid */}
                 <div className="lg:col-span-4 grid grid-cols-1 gap-4 md:gap-6">
                     <a
                         href="mailto:saikushal185@gmail.com"
@@ -134,7 +129,6 @@ export const ContactSection = () => {
                     </div>
                 </div>
 
-                {/* Social Cluster */}
                 <div className="lg:col-span-4 bg-white border border-gray-100 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 shadow-xl shadow-gray-200/30 relative h-full">
                     <div className="flex flex-col h-full gap-8 md:gap-12">
                         <div>
@@ -176,7 +170,6 @@ export const ContactSection = () => {
                     </div>
                 </div>
 
-                {/* Coding DNA Stats */}
                 <div className="lg:col-span-8 bg-white border border-gray-100 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-14 shadow-xl shadow-gray-200/30 overflow-hidden relative">
                     <div className="flex items-center gap-5 mb-10 md:mb-16">
                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shadow-inner flex-shrink-0">
@@ -221,7 +214,6 @@ export const ContactSection = () => {
                 onOpenChange={setAnonymousDialogOpen}
             />
 
-            {/* Journey Footer */}
             <footer className="mt-24 text-center pb-20 animate-fade-in">
                 <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em] flex items-center justify-center gap-6">
                     <span className="w-16 h-px bg-gray-200" />
