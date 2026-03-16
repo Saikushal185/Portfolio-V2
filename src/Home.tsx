@@ -43,8 +43,8 @@ const Home = () => {
     return (
         <div className="home-container relative min-h-full flex flex-col items-center py-12 px-4">
             <Helmet>
-                <title>Sai Kushal Vittanala | GenAI Pioneer & Full Stack Engineer</title>
-                <meta name="description" content="Portfolio of Sai Kushal Vittanala - GenAI Pioneer specializing in autonomous systems, LLM agents, and full-stack engineering. Transforming complexity into intelligent solutions." />
+                <title>Sai Kushal Vittanala | Data Scientist</title>
+                <meta name="description" content="Portfolio of Sai Kushal Vittanala - Data Scientist specializing in AI/ML systems, data analytics, and intelligent solutions. Transforming complexity into actionable insights." />
             </Helmet>
 
             {/* Profile Avatar - Floating Clean */}
@@ -142,7 +142,7 @@ const Home = () => {
                         </div>
                         <div className="text-center">
                             <span className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">CodeChef</span>
-                            <span className="block text-base font-bold text-gray-900">1★ Rated (1300+)</span>
+                            <span className="block text-base font-bold text-gray-900">2★ Rated (1400+)</span>
                         </div>
                     </a>
 
