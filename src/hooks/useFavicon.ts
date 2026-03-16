@@ -7,6 +7,7 @@ const ROUTE_FAVICON_MAP: Record<string, string> = {
     '/about': 'about',
     '/resume': 'resume',
     '/projects': 'projects',
+    '/blogs': 'blogs',
     '/contact': 'contact',
     '/skills': 'skills',
     '/education': 'education',

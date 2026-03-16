@@ -10,6 +10,7 @@ const ContactPage = lazy(() => import('./features/contact').then(module => ({ de
 const CertificationsPage = lazy(() => import('./features/certifications').then(module => ({ default: module.CertificationsPage })));
 const SkillsPage = lazy(() => import('./features/skills').then(module => ({ default: module.SkillsPage })));
 const ProjectsPage = lazy(() => import('./features/projects').then(module => ({ default: module.ProjectsPage })));
+const BlogsPage = lazy(() => import('./features/blogs').then(module => ({ default: module.BlogsPage })));
 const ResumePage = lazy(() => import('./features/resume').then(module => ({ default: module.ResumePage })));
 const PrivacyPage = lazy(() => import('./features/legal').then(module => ({ default: module.PrivacyPage })));
 const TermsPage = lazy(() => import('./features/legal').then(module => ({ default: module.TermsPage })));
@@ -24,13 +25,15 @@ import {
     Mail,
     Award,
     FileText,
-    BrainCircuit,
+    BookOpen,
     Menu,
     Shield,
     CreditCard,
     Users,
     Loader2,
-    X
+    X,
+    PanelLeftClose,
+    PanelLeftOpen
 } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -39,6 +42,7 @@ const NAV_ITEMS = [
     { path: '/resume', label: 'Resume', icon: FileText, color: 'text-purple-600', bg: 'bg-purple-100' },
     { path: '/coding-profiles', label: 'CP Stats', icon: Users, color: 'text-pink-500', bg: 'bg-pink-100' },
     { path: '/projects', label: 'Projects', icon: Folder, color: 'text-blue-500', bg: 'bg-blue-100' },
+    { path: '/blogs', label: 'Blogs', icon: BookOpen, color: 'text-stone-700', bg: 'bg-stone-100' },
     { path: '/skills', label: 'Skills', icon: Shield, color: 'text-orange-500', bg: 'bg-orange-100' },
     { path: '/education', label: 'Education', icon: CreditCard, color: 'text-yellow-600', bg: 'bg-yellow-100' },
     { path: '/certifications', label: 'Certifications', icon: Award, color: 'text-cyan-600', bg: 'bg-cyan-100' },
@@ -51,7 +55,11 @@ const ScrollToTop = () => {
     useEffect(() => {
         const mainContent = document.getElementById('main-content');
         if (mainContent) {
-            mainContent.scrollTop = 0;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            mainContent.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth'
+            });
         }
     }, [pathname]);
 
@@ -96,19 +104,23 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
 
 function App() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
     return (
         <HelmetProvider>
             <Router>
                 <ScrollToTop />
                 <div className="flex h-screen bg-white font-sans text-gray-900 selection:bg-blue-100 selection:text-blue-900 overflow-hidden">
-                    <Sidebar />
+                    <Sidebar
+                        isCollapsed={isSidebarCollapsed}
+                        onToggle={() => setIsSidebarCollapsed((value) => !value)}
+                    />
 
                     {/* Main Content Wrapper - Scrolls independently */}
-                    <div id="main-content" className="flex-1 flex flex-col h-full overflow-y-auto min-w-0 transition-all duration-300 relative">
+                    <div id="main-content" className="relative flex h-full min-w-0 flex-1 flex-col overflow-x-hidden overflow-y-auto transition-all duration-300">
                         <MobileHeader />
 
-                        <main className="flex-1 w-full max-w-[1600px] mx-auto p-4 md:p-12 pb-24 md:pb-12">
+                        <main className="flex-1 w-full max-w-[1600px] mx-auto px-3 py-4 sm:px-5 sm:py-6 lg:px-8 lg:py-8 xl:px-10 xl:py-10 pb-24 md:pb-10">
                             <Suspense fallback={<LoadingFallback />}>
                                 <Routes>
                                     <Route path="/" element={<Home />} />
@@ -118,6 +130,7 @@ function App() {
                                     <Route path="/skills" element={<SkillsPage />} />
                                     <Route path="/resume" element={<ResumePage />} />
                                     <Route path="/projects" element={<ProjectsPage />} />
+                                    <Route path="/blogs" element={<BlogsPage />} />
                                     <Route path="/certifications" element={<CertificationsPage />} />
                                     <Route path="/contact" element={<ContactPage />} />
                                     <Route path="/privacy" element={<PrivacyPage />} />
@@ -138,18 +151,35 @@ function App() {
     );
 }
 
-const Sidebar = () => {
+const Sidebar = ({
+    isCollapsed,
+    onToggle
+}: {
+    isCollapsed: boolean;
+    onToggle: () => void;
+}) => {
     const location = useLocation();
 
     return (
-        <nav className="hidden lg:flex flex-col w-72 h-full py-6 pl-4 pr-6 bg-white shrink-0 overflow-y-auto no-scrollbar border-r border-gray-50/50">
-            <div className="pl-4 mb-8">
-                <Link to="/" className="block">
-                    <h1 className="text-2xl font-normal text-gray-700">
-                        Sai Kushal Vittanala
-                    </h1>
-                    <p className="text-sm text-gray-500">saikushal185@gmail.com</p>
-                </Link>
+        <nav className={`hidden lg:flex flex-col h-full py-6 bg-white shrink-0 overflow-y-auto no-scrollbar border-r border-gray-50/50 transition-[width,padding] duration-300 ${isCollapsed ? 'w-24 px-3' : 'w-72 pl-4 pr-6'}`}>
+            <div className={`mb-8 flex items-start ${isCollapsed ? 'justify-center' : 'justify-between pl-4 gap-3'}`}>
+                {!isCollapsed && (
+                    <Link to="/" className="block min-w-0">
+                        <h1 className="text-2xl font-normal text-gray-700">
+                            Sai Kushal Vittanala
+                        </h1>
+                        <p className="text-sm text-gray-500">saikushal185@gmail.com</p>
+                    </Link>
+                )}
+                <button
+                    type="button"
+                    onClick={onToggle}
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition-all hover:border-gray-300 hover:text-gray-800 ${isCollapsed ? 'mx-auto' : ''}`}
+                    aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                    title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                >
+                    {isCollapsed ? <PanelLeftOpen className="h-5 w-5" /> : <PanelLeftClose className="h-5 w-5" />}
+                </button>
             </div>
 
             <div className="flex-1 space-y-1">
@@ -160,28 +190,31 @@ const Sidebar = () => {
                         <Link
                             key={item.path}
                             to={item.path}
-                            className={`flex items-center px-4 py-3.5 rounded-r-full transition-all duration-300 font-medium text-[15px] ${isActive
+                            className={`group flex items-center py-3.5 transition-all duration-300 font-medium text-[15px] ${isCollapsed ? 'justify-center rounded-2xl px-2' : 'rounded-r-full px-4'} ${isActive
                                 ? 'bg-blue-50 text-blue-800'
                                 : 'text-gray-600 hover:bg-gray-50'
                                 }`}
+                            title={isCollapsed ? item.label : undefined}
                         >
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 mr-4 ${item.bg}`}>
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${isCollapsed ? '' : 'mr-4'} ${item.bg}`}>
                                 <item.icon className={`w-[18px] h-[18px] ${item.color}`} />
                             </div>
-                            <span>{item.label}</span>
+                            {!isCollapsed && <span>{item.label}</span>}
                         </Link>
                     );
                 })}
             </div>
 
             {/* Footer Links at Bottom of Sidebar */}
-            <div className="mt-auto px-8 pb-4 pt-4">
-                <div className="flex gap-4 flex-wrap">
-                    <Link to="/privacy" className="text-xs font-medium text-gray-500 hover:text-gray-700 hover:underline">Privacy</Link>
-                    <Link to="/terms" className="text-xs font-medium text-gray-500 hover:text-gray-700 hover:underline">Terms</Link>
-                    <a href="https://classic.saikushal.live/" target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-gray-400 hover:text-blue-600 hover:underline">Classic Version</a>
+            {!isCollapsed && (
+                <div className="mt-auto px-8 pb-4 pt-4">
+                    <div className="flex gap-4 flex-wrap">
+                        <Link to="/privacy" className="text-xs font-medium text-gray-500 hover:text-gray-700 hover:underline">Privacy</Link>
+                        <Link to="/terms" className="text-xs font-medium text-gray-500 hover:text-gray-700 hover:underline">Terms</Link>
+                        <a href="https://classic.saikushal.live/" target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-gray-400 hover:text-blue-600 hover:underline">Classic Version</a>
+                    </div>
                 </div>
-            </div>
+            )}
         </nav>
     );
 };
@@ -206,7 +239,7 @@ const MobileNav = ({ onMenuClick }: { onMenuClick: () => void }) => {
     const BOTTOM_BAR_ITEMS = [
         { path: '/', icon: HomeIcon, label: 'Home' },
         { path: '/projects', icon: Folder, label: 'Work' },
-        { path: '/skills', icon: BrainCircuit, label: 'Skills' },
+        { path: '/blogs', icon: BookOpen, label: 'Blogs' },
         { path: '/contact', icon: Mail, label: 'Contact' },
     ];
 
