@@ -50,7 +50,7 @@ const NAV_ITEMS = [
 ];
 
 const ScrollToTop = () => {
-    const { pathname } = useLocation();
+    const { pathname, search } = useLocation();
 
     useEffect(() => {
         const mainContent = document.getElementById('main-content');
@@ -61,7 +61,7 @@ const ScrollToTop = () => {
                 behavior: prefersReducedMotion ? 'auto' : 'smooth'
             });
         }
-    }, [pathname]);
+    }, [pathname, search]);
 
     return null;
 };
