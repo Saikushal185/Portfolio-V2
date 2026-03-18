@@ -165,17 +165,20 @@ const BookArtwork = ({
     const dimensions = size === 'large'
         ? 'h-[280px] w-[188px] sm:h-[360px] sm:w-[240px] lg:h-[420px] lg:w-[285px]'
         : 'h-[250px] w-[168px] sm:h-[320px] sm:w-[215px] lg:h-[360px] lg:w-[240px]';
+    const titleClass = size === 'large'
+        ? 'max-w-[9ch] text-[1.75rem] sm:text-[2.35rem] lg:text-[2.55rem]'
+        : 'max-w-[8.5ch] text-[1.45rem] sm:text-[1.9rem] lg:text-[2.1rem]';
 
     return (
-        <div className={`group relative [perspective:1800px] ${dimensions}`}>
+        <div className={`group/book relative [perspective:1800px] ${dimensions}`}>
             <div
-                className={`absolute right-0 top-7 h-[86%] w-[80%] rounded-r-[0.45rem] border border-[#ebe6de] bg-white/98 shadow-[18px_20px_30px_rgba(60,48,32,0.08)] [transform-origin:left_center] transition-all duration-500 ${interactive ? 'group-hover:translate-x-5 group-hover:-translate-y-0.5 group-hover:rotate-[1deg]' : 'translate-x-3'}`}
+                className="absolute right-[12%] top-7 h-[86%] w-[80%] translate-x-3 rounded-r-[0.45rem] border border-[#ebe6de] bg-white/98 shadow-[18px_20px_30px_rgba(60,48,32,0.08)]"
             />
             <div
-                className={`absolute right-2 top-5 h-[88%] w-[83%] rounded-r-[0.45rem] border border-[#ede8e1] bg-white/98 shadow-[18px_20px_30px_rgba(60,48,32,0.08)] [transform-origin:left_center] transition-all duration-500 ${interactive ? 'group-hover:translate-x-8 group-hover:-translate-y-1 group-hover:rotate-[2deg]' : 'translate-x-1'}`}
+                className="absolute right-[12%] top-5 h-[88%] w-[83%] translate-x-1 rounded-r-[0.45rem] border border-[#ede8e1] bg-white/98 shadow-[18px_20px_30px_rgba(60,48,32,0.08)]"
             />
             <div
-                className={`absolute left-0 top-0 h-full w-[88%] overflow-hidden rounded-[0.35rem_0.35rem_0.35rem_0.2rem] border border-white/40 shadow-[0_22px_50px_rgba(95,76,58,0.22)] [transform-style:preserve-3d] [transform-origin:left_center] transition-all duration-500 ${interactive ? 'group-hover:-translate-y-1 group-hover:[transform:rotateY(-18deg)]' : ''}`}
+                className={`absolute left-0 top-0 h-full w-[88%] overflow-hidden rounded-[0.35rem_0.35rem_0.35rem_0.2rem] border border-white/40 shadow-[0_22px_50px_rgba(95,76,58,0.22)] [backface-visibility:hidden] [transform-origin:2.2%_50%] [transform-style:preserve-3d] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${interactive ? 'group-hover/book:[transform:rotateY(-32deg)]' : ''}`}
                 style={{ background: collection.background }}
             >
                 <div className="absolute inset-y-0 left-3 w-px bg-white/55" />
@@ -188,7 +191,7 @@ const BookArtwork = ({
                         <p className={`max-w-[18ch] text-[13px] font-semibold leading-relaxed text-white/88 sm:text-sm ${linesClampClass} [-webkit-line-clamp:3]`}>
                             {collection.description}
                         </p>
-                        <h3 className="max-w-[9ch] text-[1.75rem] font-black uppercase leading-[0.92] tracking-tight sm:text-[2.35rem] lg:text-[2.55rem]">
+                        <h3 className={`${titleClass} font-black uppercase leading-[0.92] tracking-tight`}>
                             {collection.title}
                         </h3>
                     </div>
