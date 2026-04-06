@@ -72,6 +72,10 @@ const sortByDateDesc = (posts: BlogPost[]) =>
 const sortByPopularity = (posts: BlogPost[]) =>
     [...posts].sort((left, right) => right.popularity - left.popularity);
 
+const analystPostCount = BLOG_POSTS.filter((post) => post.category === 'Data Analyst').length;
+const scientistPostCount = BLOG_POSTS.filter((post) => post.category === 'Data Scientist').length;
+const totalPostCount = BLOG_POSTS.length;
+
 const buildTopics = (posts: BlogPost[]) => {
     const grouped = posts.reduce<Record<string, BlogPost[]>>((accumulator, post) => {
         accumulator[post.topic] = [...(accumulator[post.topic] ?? []), post];
@@ -372,7 +376,7 @@ export const BlogsSection = () => {
                 <title>Blogs | Sai Kushal</title>
                 <meta
                     name="description"
-                    content="Editorial-style blog library with 10 data analyst posts and 10 data scientist posts, designed in a Compound-inspired manual layout."
+                    content={`Editorial-style blog library with ${analystPostCount} data analyst posts and ${scientistPostCount} data scientist posts, designed in a Compound-inspired manual layout.`}
                 />
             </Helmet>
 
@@ -397,11 +401,11 @@ export const BlogsSection = () => {
                                         </div>
                                         <div>
                                             <p className="text-sm text-white/70">Editorial library</p>
-                                            <p className="text-[1.85rem] font-semibold leading-none sm:text-2xl">20 focused posts</p>
+                                            <p className="text-[1.85rem] font-semibold leading-none sm:text-2xl">{totalPostCount} focused posts</p>
                                         </div>
                                     </div>
                                     <p className="mt-3 text-sm leading-relaxed text-white/75 sm:mt-4">
-                                        10 data analyst posts and 10 data scientist posts, spaced one month apart to feel like a living archive.
+                                        {`${analystPostCount} data analyst posts and ${scientistPostCount} data scientist posts, spaced one month apart to feel like a living archive.`}
                                     </p>
                                 </div>
                             </div>
