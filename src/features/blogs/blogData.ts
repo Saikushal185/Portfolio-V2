@@ -28,6 +28,22 @@ export interface BlogCollection {
 
 export const BLOG_POSTS: BlogPost[] = [
     {
+        id: 'analyst-metric-definitions',
+        slug: 'metric-definitions-that-stop-cross-team-reporting-drift',
+        title: 'Metric Definitions That Stop Cross-Team Reporting Drift',
+        excerpt: 'A lightweight operating system for metric definitions, ownership, and change control when every team seems to have a different number.',
+        body: [
+            'Reporting drift usually starts small: growth uses one activation definition, product uses another, and finance quietly exports a third version into a board deck. The fix is not a bigger dashboard. It is a metric contract. For every critical metric, I like to document the business question, source tables, grain, inclusions, exclusions, and the exact moment the metric should be trusted. If a team cannot explain when a metric should not be used, the definition is still incomplete.',
+            'What keeps the contract alive is ownership and change discipline. Each important metric needs a named owner, a lightweight review cadence, and a visible change log when definitions shift. During transitions, I prefer showing the old and new logic side by side for a short period so stakeholders can see the impact before the switch becomes permanent. That turns metric governance from a documentation chore into a trust-building habit that prevents the same reporting argument from returning every quarter.'
+        ],
+        category: 'Data Analyst',
+        topic: 'Business Intelligence',
+        date: '2026-04-04',
+        readTime: '6 min read',
+        tags: ['Metric Definitions', 'Governance', 'Stakeholder Alignment'],
+        popularity: 96
+    },
+    {
         id: 'analyst-kpi-trees',
         slug: 'building-kpi-trees-that-survive-executive-reviews',
         title: 'Building KPI Trees That Survive Executive Reviews',
@@ -354,7 +370,7 @@ export const BLOG_COLLECTIONS: BlogCollection[] = [
         id: 'analyst-playbook',
         title: 'Analyst Playbook',
         eyebrow: 'The Portfolio Manual',
-        description: 'Ten practical essays on dashboards, decision systems, KPI design, and stakeholder communication for modern data analysts.',
+        description: 'A growing collection of practical essays on dashboards, decision systems, KPI design, and stakeholder communication for modern data analysts.',
         accent: '#f4b183',
         secondaryAccent: '#9ec8ef',
         background: 'linear-gradient(145deg, #ece4d6 0%, #d9b49d 36%, #9ab5cf 100%)',
