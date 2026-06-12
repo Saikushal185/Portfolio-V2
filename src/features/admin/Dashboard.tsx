@@ -38,7 +38,7 @@ export const Dashboard = () => {
     };
 
     const handleLogout = async () => {
-        localStorage.removeItem('admin_authenticated');
+        await supabase.auth.signOut();
         window.location.reload();
     };
 
@@ -58,7 +58,7 @@ export const Dashboard = () => {
             {/* RLS Warning Banner */}
             <div className="p-4 rounded-xl bg-blue-50 border border-blue-100 flex items-start gap-3">
                 <div className="text-sm text-blue-800">
-                    <strong>Note:</strong> Since we are using simplified login, ensure your Supabase <code>messages</code> table allows <strong>public</strong> read/delete access (or anon-key access) for this dashboard to work.
+                    <strong>Note:</strong> This dashboard uses Supabase Auth. Configure RLS so the <code>messages</code> table allows <strong>select/delete for authenticated users only</strong> (anonymous visitors should only be able to insert).
                 </div>
             </div>
 

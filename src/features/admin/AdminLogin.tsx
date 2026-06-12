@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { isSupabaseConfigured } from '../../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 import { Lock, Mail, Loader2, AlertCircle } from 'lucide-react';
 
 interface AdminLoginProps {
@@ -17,21 +17,20 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
         setIsLoading(true);
         setError(null);
 
-        // Simple hardcoded check for demonstration
-        if (email.toLowerCase() === 'admin' && password === 'admin123') {
-            // Simulate network delay for effect
-            setTimeout(() => {
-                localStorage.setItem('admin_authenticated', 'true');
-                onLogin();
-                setIsLoading(false);
-            }, 800);
-        } else {
-            // Mock authentication error
-            setTimeout(() => {
-                setError('Invalid credentials');
-                setIsLoading(false);
-            }, 500);
+        // Real authentication via Supabase Auth — no credentials live in the bundle.
+        const { error: authError } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        });
+
+        if (authError) {
+            setError('Invalid credentials');
+            setIsLoading(false);
+            return;
         }
+
+        setIsLoading(false);
+        onLogin();
     };
 
     if (!isSupabaseConfigured) {
@@ -69,11 +68,11 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
 
                     <div className="space-y-4">
                         <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Username</label>
+                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Email</label>
                             <div className="relative">
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                 <input
-                                    type="text"
+                                    type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium"

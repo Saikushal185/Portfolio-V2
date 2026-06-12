@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AdminLogin } from './AdminLogin';
 import { Dashboard } from './Dashboard';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 import { Loader2 } from 'lucide-react';
 
 export const AdminPage = () => {
@@ -8,12 +9,21 @@ export const AdminPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const checkAuth = () => {
-            const isAuth = localStorage.getItem('admin_authenticated') === 'true';
-            setIsAuthenticated(isAuth);
+        if (!isSupabaseConfigured) {
             setLoading(false);
-        };
-        checkAuth();
+            return;
+        }
+
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            setIsAuthenticated(!!session);
+            setLoading(false);
+        });
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setIsAuthenticated(!!session);
+        });
+
+        return () => subscription.unsubscribe();
     }, []);
 
     if (loading) {
