@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Ghost, ArrowLeft } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const NotFoundPage = () => {
     return (
         <div className="home-container relative min-h-full flex flex-col items-center justify-center p-4">
+            <Helmet>
+                <title>Page Not Found | Sai Kushal</title>
+                <meta name="description" content="The page you are looking for does not exist." />
+            </Helmet>
             {/* Ambient Background Elements */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full -z-10 animate-pulse" />
 

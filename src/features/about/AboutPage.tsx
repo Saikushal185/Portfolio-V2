@@ -34,7 +34,7 @@ export const AboutPage = () => {
           <Sparkles className="w-3 h-3" />
           Evolution of an Engineer
         </div>
-        <h1 className="text-6xl md:text-8xl font-black tracking-[ -0.05em] text-gray-900 leading-[0.95] mb-8">
+        <h1 className="text-6xl md:text-8xl font-black tracking-[-0.05em] text-gray-900 leading-[0.95] mb-8">
           Data & AI <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600">
             Specialist.

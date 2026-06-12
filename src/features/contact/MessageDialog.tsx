@@ -12,15 +12,19 @@ export const MessageDialog = ({ open, onOpenChange }: MessageDialogProps) => {
     const [isLoading, setIsLoading] = useState(false);
     const [notification, setNotification] = useState<{ title: string; description: string; type: 'success' | 'error' } | null>(null);
 
-    // Lock scroll when open
+    // Lock scroll when open — the app scrolls #main-content, not body
     useEffect(() => {
+        const scroller = document.getElementById('main-content');
         if (open) {
             document.body.style.overflow = 'hidden';
+            if (scroller) scroller.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'auto';
+            if (scroller) scroller.style.overflow = '';
         }
         return () => {
             document.body.style.overflow = 'auto';
+            if (scroller) scroller.style.overflow = '';
         };
     }, [open]);
 

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Award } from "lucide-react";
+import { Award, BadgeCheck, ArrowUpRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useFavicon } from "../../hooks/useFavicon";
 
@@ -36,7 +36,7 @@ const CertificationItem = memo(({ cert }: { cert: { title: string; link: string 
         style={{ contentVisibility: 'auto' }}
     >
         <div className="flex items-center gap-4 sm:gap-6 flex-1 w-full">
-            <span className="material-icons-outlined text-blue-500 shrink-0 text-2xl">workspace_premium</span>
+            <BadgeCheck className="w-6 h-6 text-blue-500 shrink-0" />
             <span className="text-base md:text-lg font-medium text-gray-800 leading-tight">
                 {cert.title}
             </span>
@@ -49,7 +49,7 @@ const CertificationItem = memo(({ cert }: { cert: { title: string; link: string 
             className="flex items-center gap-2 text-sm md:text-base text-blue-600 font-bold uppercase tracking-widest
                  opacity-90 hover:opacity-100 transition-opacity hover:text-blue-700 shrink-0 self-end sm:self-center"
         >
-            View <span className="material-icons-outlined text-sm">arrow_outward</span>
+            View <ArrowUpRight className="w-4 h-4" />
         </a>
     </li>
 ));
